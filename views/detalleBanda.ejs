@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <%- include("./partials/head") %>
+</head>
+
+<body>
+<%- include("./partials/header") %>
+<% if (detallesBanda == "F"){ %>
+    <h1>These are not the droids you are looking for</h1>
+    <img src="https://i.kym-cdn.com/entries/icons/facebook/000/018/682/obi-wan.jpg" alt="">
+<% } else { %>
+<div class="detalles">
+    <h1><%= detallesBanda[0].nombre %></h1>
+    <img src="<%= detallesBanda[0].cover %>" alt="">
+    <h2>Genero:</h2>
+        <h3><a href="../genero/<%= detallesBanda[0].genero %>"><%= detallesBanda[0].genero %></a> </h3>
+    
+    <h2>Top Hits:</h2>
+    <ul>
+        <li><%= detallesBanda[0].topCanciones[0] %></li>
+        <li><%= detallesBanda[0].topCanciones[1] %></li>
+        <li><%= detallesBanda[0].topCanciones[2] %></li>
+    </ul>
+    <h2>Video</h2>
+    <iframe src="<%= detallesBanda[0].video %>" frameborder="0"></iframe>
+</div>  
+<% } %> 
+
+</body>
+<%- include("./partials/footer") %>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include("./partials/head") %>
+</head>
+<body>
+<%- include("./partials/header") %>
+
+<% if (bandasGenero == "F"){ %>
+<h1>These are not the droids you are looking for</h1>
+<img src="https://i.kym-cdn.com/entries/icons/facebook/000/018/682/obi-wan.jpg" alt="">
+
+<% } else { %>
+
+
+<div class="detalles">
+<h1><%= bandasGenero[0].genero%></h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam recusandae in modi adipisci et veniam. Quisquam asperiores illo illum exercitationem itaque excepturi tempore ad amet temporibus iusto unde, quae tempora!</p>
+<h2>Estas bandas pertenecen a este genero:</h2>
+<div>
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+        uk-slider="autoplay: true; autoplay-interval: 3000">
+        <ul class="banda uk-slider-items uk-child-width-1-2@s uk-child-width-1-2@m">
+            <% for (let i = 0; i < bandasGenero.length; i++) { %>
+            <div class="wrap">
+
+                <div class="overlay">
+                    <div class="banda">
+                        <h1><a href="../id/<%=bandasGenero[i].id %> "><%= bandasGenero[i].nombre %></a></h1>
+                        <p>Genero: <a
+                                href="../genero/<%=bandasGenero[i].genero %>"><%= bandasGenero[i].genero %></a>
+                                </p>
+                    </div>
+                </div>
+                <img src="<%= bandasGenero[i].cover %>" alt="">
+            </div>
+            <% } %>
+        </ul>
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+            uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+            uk-slider-item="next"></a>
+    </div>
+</div>
+</div>
+<% } %>
+
+</body>
+<%- include("./partials/footer") %>
+</html>
